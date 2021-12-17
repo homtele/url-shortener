@@ -1,4 +1,9 @@
 <form action="/" method="post">
-  <input type="url" name="" id="">
+  <input type="url" name="full" id="full">
   <button type="submit">Shorten</button>
 </form>
+<ul>
+  {{#each urls}}
+  <li>{{full}} | {{short}}</li>
+  {{/each}}
+</ul>
