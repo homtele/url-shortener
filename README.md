@@ -11,7 +11,7 @@ git clone https://github.com/homtele/url-shortener.git
 ```
 2. Install dependencies
 ```
-cd restaurant-list
+cd url-shortener
 npm install
 ```
 3. Run the project
