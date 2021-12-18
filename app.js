@@ -1,7 +1,8 @@
 const express = require('express')
 const engine = require('express-handlebars').engine
-const URL = require('./models/urlSchema.js')
 require('./config/mongoose.js')
+const URL = require('./models/urlSchema.js')
+const getRandom = require('./utils/get-random.js')
 
 const PORT = process.env.PORT || 3000
 
@@ -13,16 +14,41 @@ app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-  URL.find().lean().then(urls => {
+  URL.find().sort('-_id').lean().then(urls => {
     res.render('index', { urls })
+  }).catch(err => {
+    console.error(err)
+  })
+})
+
+app.get('/:short', (req, res) => {
+  const short = req.params.short
+  URL.findOne({ short }).then(url => {
+    if (url) {
+      res.redirect(url.full)
+    } else {
+      res.redirect('/')
+    }
+  }).catch(err => {
+    console.error(err)
   })
 })
 
 app.post('/', (req, res) => {
   const full = req.body.full
-  const short = '12345'
-  URL.create({ full, short }).then(() => {
-    res.redirect('/')
+  URL.findOne({ full }).lean().then(url => {
+    if (url) {
+      return url
+    } else {
+      const origin = req.headers.origin
+      const short = getRandom(5)
+      URL.create({ full, origin, short })
+      return { full, origin, short }
+    }
+  }).then(url => {
+    res.render('short', { url })
+  }).catch(err => {
+    console.error(err)
   })
 })
 

@@ -7,6 +7,10 @@ const urlSchema = new Schema({
     type: String,
     required: true
   },
+  origin: {
+    type: String,
+    required: true
+  },
   short: {
     type: String,
     required: true

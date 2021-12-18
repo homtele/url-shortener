@@ -5,11 +5,11 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/url-lsit'
 mongoose.connect(MONGODB_URI)
 const db = mongoose.connection
 
-db.once('error', () => {
+db.on('error', () => {
   console.log('mongodb error!')
 })
 
-db.on('open', () => {
+db.once('open', () => {
   console.log('mongodb connected!')
 })
 
