@@ -11,6 +11,7 @@ const app = express()
 app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
