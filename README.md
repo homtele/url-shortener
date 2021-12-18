@@ -1,4 +1,6 @@
 # url-shortener
+![index](./public/images/index.jpeg)
+![short](./public/images/short.jpeg)
 ## 環境建置與需求 (prerequisites)
 * Node.js
 * MongoDB
@@ -21,5 +23,6 @@ Navigate to http://localhost:3000
 * 送出表單之後，畫面會回傳格式化後的短網址
 * 輸入提供的短網址，瀏覽器會導向原本的網站
 * 輸入相同網址時，產生一樣的縮址
-* 若使用者沒有輸入內容，表單不會送出並會提示使用者
-* 使用者可以按 Copy 來複製縮短後的網址
+* 若沒有輸入內容，表單不會送出並會產生提示
+* 按 Copy 可以複製縮短後的網址
+* 點擊圖片會回到首頁
