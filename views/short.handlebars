@@ -1,5 +1,10 @@
-<p>Success! Please use this link: </p>
-<a href="{{url.origin}}/{{url.short}}" id="short">{{url.origin}}/{{url.short}}</a>
-<button id="copy-button">Copy</button>
+<p class="mb-3">
+  <h1 class="fw-bold">Success! Please use this link: </h1>
+  <a href="{{url.origin}}/{{url.short}}" class="fs-4" id="short">{{url.origin}}/{{url.short}}</a>
+</p>
+<div class="d-grid col-3 mb-3 mx-auto">
+  <button class="btn btn-primary" id="copy-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Copied">Copy</button>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/javascripts/short.js"></script>
